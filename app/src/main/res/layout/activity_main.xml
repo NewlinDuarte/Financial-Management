@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.newlin.financialmanagement.MainActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
+
+    <Button
+        android:text="Button"
+        android:layout_width="138dp"
+        android:layout_height="94dp"
+        tools:layout_editor_absoluteX="230dp"
+        tools:layout_editor_absoluteY="401dp"
+        android:id="@+id/ingresoButton"
+        android:onClick= "ingresoClick"
+        app:layout_constraintRight_toRightOf="@+id/activity_main"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        tools:layout_constraintRight_creator="0"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_main"
+        android:layout_marginBottom="16dp"
+        tools:layout_constraintBottom_creator="0" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="138dp"
+        android:layout_height="94dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="401dp"
+        android:id="@+id/egresoButton"
+        android:onClick = "egresoClick"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_main"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        tools:layout_constraintLeft_creator="0"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_main"
+        android:layout_marginBottom="16dp"
+        tools:layout_constraintBottom_creator="0"
+        />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_egreso"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.newlin.financialmanagement.EgresoActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Egresos"
+        android:ems="10"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="199dp"
+        android:id="@+id/editText2"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_egreso"
+        tools:layout_constraintLeft_creator="0"
+        app:layout_constraintRight_toRightOf="@+id/activity_egreso"
+        tools:layout_constraintRight_creator="0" />
+</android.support.constraint.ConstraintLayout>
