@@ -17,10 +17,15 @@ import android.view.MenuItem;
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    NavigationView navigationView = null;
+    Toolbar toolbar = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -83,7 +88,10 @@ public class Main2Activity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.actreg_ingreso) {
-            startActivity(new Intent(this, IngresoFragment.class));
+            IngresoFragment fragment = new IngresoFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            //fragmentTransaction.add(fragment, ); aqui es newlin.
+            fragmentTransaction.commit();
         } else if (id == R.id.actreg_egreso) {
         //    startActivity(new Intent(this, IngresoFragment.class));
         } else if (id == R.id.actreg_transferencia) {
