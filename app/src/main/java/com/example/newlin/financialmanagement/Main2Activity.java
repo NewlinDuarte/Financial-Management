@@ -44,16 +44,6 @@ public class Main2Activity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    protected void ingresoClick (View v){
-        Intent myIntent = new Intent(Main2Activity.this, IngresoActivity.class);
-        startActivity(myIntent);
-    }
-
-    protected void egresoClick (View v){
-        Intent myIntent = new Intent(Main2Activity.this, EgresoActivity.class);
-        startActivity(myIntent);
-    }
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -92,18 +82,20 @@ public class Main2Activity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
+        if (id == R.id.actreg_ingreso) {
+            startActivity(new Intent(this, IngresoFragment.class));
+        } else if (id == R.id.actreg_egreso) {
+        //    startActivity(new Intent(this, IngresoFragment.class));
+        } else if (id == R.id.actreg_transferencia) {
 
         } else if (id == R.id.nav_manage) {
+            //Proximamente
+        } else if (id == R.id.actcons_ingreso) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.actcons_egreso) {
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.actcons_transferencia) {
+        //Proximamente
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
