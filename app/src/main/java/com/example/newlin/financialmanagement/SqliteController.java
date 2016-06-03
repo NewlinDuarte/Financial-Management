@@ -41,7 +41,7 @@ public class SqliteController extends SQLiteOpenHelper {
     public long selectIngreso(int id){
         SQLiteDatabase database = this.getReadableDatabase();
         Cursor cursor = database.query(DatabaseContract.IngresoEntry.TABLE_NAME,null,null,null,null,null,null);
-        cursor.moveToFirst();
+        cursor.moveToLast();
         long item = cursor.getLong(cursor.getColumnIndexOrThrow("cantidad"));
         return item;
     }
