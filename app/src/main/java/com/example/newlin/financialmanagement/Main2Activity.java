@@ -1,5 +1,6 @@
 package com.example.newlin.financialmanagement;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -90,10 +92,22 @@ public class Main2Activity extends AppCompatActivity
         if (id == R.id.actreg_ingreso) {
             IngresoFragment fragment = new IngresoFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            //fragmentTransaction.add(fragment, ); aqui es newlin.
+            fragmentTransaction.add(fragment, "ingreso");
+            fragmentTransaction.replace(R.id.main_view , fragment);
             fragmentTransaction.commit();
+            //para probar funcionamiento del navbar
+            Context context = getApplicationContext();
+            CharSequence text = "Hello toast!";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
         } else if (id == R.id.actreg_egreso) {
-        //    startActivity(new Intent(this, IngresoFragment.class));
+            EgresoFragment fragment = new EgresoFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(fragment, "egreso");
+            fragmentTransaction.replace(R.id.main_view , fragment);
+            fragmentTransaction.commit();
         } else if (id == R.id.actreg_transferencia) {
 
         } else if (id == R.id.nav_manage) {

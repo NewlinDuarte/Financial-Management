@@ -1,13 +1,65 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.newlin.financialmanagement.IngresoFragment">
+    tools:context="com.example.newlin.financialmanagement.IngresoFragment"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="25dp"
+    android:id="@+id/constraintLayout">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/ingresoText"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        tools:layout_constraintTop_creator="1" />
 
-</FrameLayout>
+    <Button
+        android:text="Aceptar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/insButton"
+        android:onClick="insertIngreso"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="72dp"
+        app:layout_constraintLeft_toLeftOf="@+id/ingresoText"
+        android:layout_marginLeft="64dp"
+        android:layout_marginStart="64dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintTop_toTopOf="@+id/ingresoText"
+        android:layout_marginTop="72dp"
+        tools:layout_constraintTop_creator="1" />
+
+    <Button
+        android:text="Mostrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="168dp"
+        android:id="@+id/mostrarbutton"
+        android:onClick="mostrarIngreso"
+        app:layout_constraintLeft_toLeftOf="@+id/insButton"
+        tools:layout_constraintLeft_creator="0"
+        app:layout_constraintTop_toBottomOf="@+id/insButton"
+        android:layout_marginTop="48dp"
+        tools:layout_constraintTop_creator="0" />
+
+    EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="408dp"
+        android:id="@+id/editText" />
+
+</android.support.constraint.ConstraintLayout>
