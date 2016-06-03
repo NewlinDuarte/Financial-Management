@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -58,16 +59,19 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
 
 
     // TODO: arreglar findViewById()
-    private void insertIngreso(View v){
+    private void insertIngreso(){
         SqliteController controller = new SqliteController(this.getContext());
-       //EditText edit = (EditText) findViewById();
-       // controller.insertIngreso(Float.parseFloat(edit.getText()));
-        controller.insertIngreso(700);
+       EditText edit = (EditText) getView().findViewById(R.id.ingresoText);
+        CharSequence text =  String.valueOf(edit.getText());
+       controller.insertIngreso(Float.parseFloat(String.valueOf(text)));
     }
 
     private void mostrarIngreso(){
         SqliteController controller = new SqliteController(this.getContext());
         long item = controller.selectIngreso(1);
+        long total = controller.totalIngreso();
+        TextView textView = (TextView) getView().findViewById(R.id.totalIngresoText);
+        textView.setText(String.valueOf(total));
         // para probar
         CharSequence text =  String.valueOf(item);
         int duration = Toast.LENGTH_SHORT;

@@ -40,9 +40,19 @@ public class SqliteController extends SQLiteOpenHelper {
 
     public long selectIngreso(int id){
         SQLiteDatabase database = this.getReadableDatabase();
+        // TODO: agregar condicion where en el query
         Cursor cursor = database.query(DatabaseContract.IngresoEntry.TABLE_NAME,null,null,null,null,null,null);
         cursor.moveToLast();
         long item = cursor.getLong(cursor.getColumnIndexOrThrow("cantidad"));
+        return item;
+    }
+
+    public long totalIngreso(){
+        SQLiteDatabase database = this.getReadableDatabase();
+        String query = "Select sum("+DatabaseContract.IngresoEntry.COLUMN_NAME_CANTIDAD+") as Total from "+DatabaseContract.IngresoEntry.TABLE_NAME;
+        Cursor cursor = database.rawQuery(query,null);
+        cursor.moveToFirst();
+        long item = cursor.getLong(cursor.getColumnIndexOrThrow("Total"));
         return item;
     }
 }
