@@ -40,7 +40,7 @@ public class IngresoFragment extends Fragment {
     }
 
     // TODO: arreglar findViewById()
-    private void insertIngreso(){
+    private void insertIngreso(View v){
         SqliteController controller = new SqliteController(this.getContext());
        /* EditText edit = (EditText) findViewById();
         controller.insertIngreso(Float.parseFloat(edit.getText())); */
