@@ -39,19 +39,19 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_ingreso, container, false);;
-        Button mostrar = (Button) v.findViewById(R.id.mostrarbutton);
+        Button mostrar = (Button) v.findViewById(R.id.MostrarButton);
         mostrar.setOnClickListener(this);
-        Button insertar = (Button) v.findViewById(R.id.insButton);
+        Button insertar = (Button) v.findViewById(R.id.GuardarButton);
         insertar.setOnClickListener(this);
         return v;
     }
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.insButton:
+            case R.id.GuardarButton:
                 insertIngreso();
                 break;
-            case R.id.mostrarbutton:
+            case R.id.MostrarButton:
                 mostrarIngreso();
                 break;
         }
@@ -61,7 +61,7 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
     // TODO: arreglar findViewById()
     private void insertIngreso(){
         SqliteController controller = new SqliteController(this.getContext());
-       EditText edit = (EditText) getView().findViewById(R.id.ingresoText);
+       EditText edit = (EditText) getView().findViewById(R.id.IngresoTextBox);
         CharSequence text =  String.valueOf(edit.getText());
        controller.insertIngreso(Float.parseFloat(String.valueOf(text)));
     }
@@ -70,8 +70,10 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
         SqliteController controller = new SqliteController(this.getContext());
         long item = controller.selectIngreso(1);
         long total = controller.totalIngreso();
-        TextView textView = (TextView) getView().findViewById(R.id.totalIngresoText);
+        TextView textView = (TextView) getView().findViewById(R.id.TotalIngresoTextBox);
         textView.setText(String.valueOf(total));
+        textView.setVisibility(View.VISIBLE);
+
         // para probar
         CharSequence text =  String.valueOf(item);
         int duration = Toast.LENGTH_SHORT;
