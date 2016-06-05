@@ -18,4 +18,29 @@
         android:layout_marginBottom="231dp"
         android:indeterminate="false" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Financial"
+        android:id="@+id/textView3"
+        android:layout_marginBottom="77dp"
+        android:textStyle="bold"
+        android:layout_above="@+id/progressBar"
+        android:layout_alignLeft="@+id/progressBar"
+        android:layout_alignStart="@+id/progressBar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Management"
+        android:id="@+id/textView4"
+        android:autoText="true"
+        android:textColor="@color/background_material_light"
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3" />
+
 </RelativeLayout>

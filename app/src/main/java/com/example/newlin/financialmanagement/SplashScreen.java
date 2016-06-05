@@ -33,6 +33,7 @@ public class SplashScreen extends AppCompatActivity {
             public void onFinish() {
                 Intent nuevoform = new Intent(SplashScreen.this, Main2Activity.class);
                 startActivity(nuevoform);
+                finish();
             }
         }.start();
     }
