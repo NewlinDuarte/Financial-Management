@@ -1,131 +1,138 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.newlin.financialmanagement.IngresoFragment"
-    android:id="@+id/RelativeLayout">
+    android:id="@+id/scrollView"
+    android:layout_alignBottom="@+id/expandableListView"
+    android:layout_alignLeft="@+id/TotalIngresoTextBox"
+    android:layout_alignStart="@+id/TotalIngresoTextBox"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <EditText
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/IngresoTextBox"
-        android:hint="0.00"
-        android:longClickable="false"
-        android:linksClickable="false"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/RelativeLayout">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Importe:"
-        android:id="@+id/textView2"
-        android:paddingBottom="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Cuenta:"
-        android:id="@+id/textView5"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="62dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Monto:"
+            android:id="@+id/textView2"
+            android:layout_marginTop="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Descripcion:"
-        android:id="@+id/textView6"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/IngresoTextBox"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:hint="Monto" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/IngresoTextBox"
-        android:layout_alignStart="@+id/IngresoTextBox" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Cuenta:"
+            android:id="@+id/textView5"
+            android:layout_marginTop="45dp"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    <ExpandableListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/expandableListView"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
-        android:layout_alignTop="@+id/textView5"
-        android:layout_alignBottom="@+id/textView5" />
+        <ExpandableListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/expandableListView2"
+            tools:listitem="@android:layout/simple_list_item_1"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignLeft="@+id/IngresoTextBox"
+            android:layout_alignStart="@+id/IngresoTextBox"
+            android:layout_alignTop="@+id/textView5"
+            android:layout_alignBottom="@+id/textView5" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Guardar"
-        android:id="@+id/GuardarButton"
-        android:layout_marginTop="59dp"
-        android:layout_below="@+id/editText2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/IngresoTextBox"
-        android:focusable="false"
-        android:enabled="true"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@color/abc_input_method_navigation_guard"
-        android:onClick="insertIngreso"
-        android:clickable="true"
-        android:contextClickable="false" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Descripcion"
+            android:id="@+id/textView6"
+            android:layout_below="@+id/textView5"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="41dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Total:"
-        android:id="@+id/textView7"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_alignBottom="@+id/textView6"
+            android:layout_alignLeft="@+id/expandableListView2"
+            android:layout_alignStart="@+id/expandableListView2"
+            android:layout_alignRight="@+id/expandableListView2"
+            android:layout_alignEnd="@+id/expandableListView2"
+            android:hint="Descripcion" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="TotalNumero"
-        android:id="@+id/TotalIngresoTextBox"
-        android:layout_alignBottom="@+id/textView7"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2"
-        android:visibility="invisible" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            android:id="@+id/GuardarButton"
+            android:layout_centerVertical="true"
+            android:layout_alignRight="@+id/editText"
+            android:layout_alignEnd="@+id/editText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@color/colorPrimaryDark"
+            android:enabled="true"
+            android:clickable="true"
+            android:onClick="insertIngreso" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mostrar"
-        android:id="@+id/MostrarButton"
-        android:focusable="false"
-        android:enabled="true"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@color/abc_input_method_navigation_guard"
-        android:layout_above="@+id/textView7"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/TotalIngresoTextBox"
-        android:layout_alignEnd="@+id/TotalIngresoTextBox"
-        android:nestedScrollingEnabled="false"
-        android:onClick="mostrarIngreso"
-        android:clickable="true" />
-</RelativeLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mostrar"
+            android:id="@+id/MostrarButton"
+            android:layout_below="@+id/GuardarButton"
+            android:layout_marginTop="58dp"
+            android:layout_alignRight="@+id/editText"
+            android:layout_alignEnd="@+id/editText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:onClick="mostrarIngreso"
+            android:enabled="true"
+            android:clickable="true"
+            android:background="@color/colorPrimaryDark" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Total:"
+            android:id="@+id/textView7"
+            android:layout_below="@+id/MostrarButton"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="51dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Total"
+            android:id="@+id/TotalIngresoTextBox"
+            android:layout_alignBottom="@+id/textView7"
+            android:layout_alignRight="@+id/editText"
+            android:layout_alignEnd="@+id/editText"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+</ScrollView>
