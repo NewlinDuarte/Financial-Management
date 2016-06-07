@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -38,9 +39,10 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         View v = inflater.inflate(R.layout.fragment_ingreso, container, false);;
-        Button mostrar = (Button) v.findViewById(R.id.MostrarButton);
-        mostrar.setOnClickListener(this);
+      /*  Button mostrar = (Button) v.findViewById(R.id.MostrarButton);
+        mostrar.setOnClickListener(this); */
         Button insertar = (Button) v.findViewById(R.id.GuardarButton);
         insertar.setOnClickListener(this);
         return v;
@@ -51,9 +53,9 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
             case R.id.GuardarButton:
                 insertIngreso();
                 break;
-            case R.id.MostrarButton:
+           /* case R.id.MostrarButton:
                 mostrarIngreso();
-                break;
+                break; */
         }
     }
 
@@ -66,7 +68,7 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
        controller.insertIngreso(Float.parseFloat(String.valueOf(text)));
     }
 
-    private void mostrarIngreso(){
+/*    private void mostrarIngreso(){
         SqliteController controller = new SqliteController(this.getContext());
         long item = controller.selectIngreso(1);
         long total = controller.totalIngreso();
@@ -80,5 +82,5 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
         Toast toast = Toast.makeText(this.getContext(), text, duration);
         toast.show();
 
-    }
+    } */
 }
