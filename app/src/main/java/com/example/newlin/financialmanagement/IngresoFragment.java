@@ -39,7 +39,6 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         View v = inflater.inflate(R.layout.fragment_ingreso, container, false);;
       /*  Button mostrar = (Button) v.findViewById(R.id.MostrarButton);
         mostrar.setOnClickListener(this); */

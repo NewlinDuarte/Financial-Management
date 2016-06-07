@@ -64,15 +64,6 @@
         android:layout_marginStart="50dp"
         android:hint="$0.0" />
 
-    <ExpandableListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/CuentaListView"
-        android:layout_alignTop="@+id/textView9"
-        android:layout_alignLeft="@+id/MontoTextBox"
-        android:layout_alignStart="@+id/MontoTextBox"
-        android:layout_above="@+id/textView10" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,8 +71,18 @@
         android:ems="10"
         android:id="@+id/Descripcion"
         android:layout_alignBottom="@+id/textView10"
-        android:layout_alignLeft="@+id/CuentaListView"
-        android:layout_alignStart="@+id/CuentaListView"
-        android:hint="Breve Descripcion" />
+        android:hint="Breve Descripcion"
+        android:layout_alignLeft="@+id/MontoTextBox"
+        android:layout_alignStart="@+id/MontoTextBox" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner2"
+        android:layout_alignTop="@+id/textView9"
+        android:layout_alignLeft="@+id/Descripcion"
+        android:layout_alignStart="@+id/Descripcion"
+        android:layout_above="@+id/textView10"
+        android:spinnerMode="dialog" />
 
 </RelativeLayout>

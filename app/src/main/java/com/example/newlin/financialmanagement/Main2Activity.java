@@ -110,14 +110,21 @@ public class Main2Activity extends AppCompatActivity
             fragmentTransaction.commit();
         } else if (id == R.id.actreg_transferencia) {
 
-        } else if (id == R.id.nav_manage) {
-            //Proximamente
-        } else if (id == R.id.actcons_ingreso) {
 
-        } else if (id == R.id.actcons_egreso) {
+        } else if (id == R.id.actreg_cuenta) {
+            CuentasFragment fragment = new CuentasFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(fragment, "cuenta");
+            fragmentTransaction.replace(R.id.main_view , fragment);
+            fragmentTransaction.commit();
+        } else if (id == R.id.ver_ing) {
 
-        } else if (id == R.id.actcons_transferencia) {
+        } else if (id == R.id.ver_eg) {
+
+        } else if (id == R.id.ver_cuentas) {
         //Proximamente
+        }else if (id == R.id.ver_trans) {
+            //Proximamente
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
