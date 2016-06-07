@@ -2,6 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/IngresoSet"
+        android:orderInCategory="100"
+        android:title="Ingresos"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/EgresoSet"
+        android:orderInCategory="100"
+        android:title="Egresos"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/CuentasSet"
+        android:orderInCategory="100"
+        android:title="Cuentas"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"

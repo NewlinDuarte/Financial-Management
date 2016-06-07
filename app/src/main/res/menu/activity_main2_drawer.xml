@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-        <item android:title="Ingresar">
+        <item android:title="Agregar Nuev@">
             <menu>
         <item
             android:id="@+id/actreg_ingreso"
@@ -13,30 +13,32 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="Egresos" />
         <item
-            android:id="@+id/actreg_transferencia"
+            android:id="@+id/actreg_cuenta"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Transferencias" />
+            android:title="Cuenta" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/actreg_transferencia"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Proximamente" />
+            android:title="Transferencia" />
             </menu>
         </item>
 
-
-
-    <item android:title="Consultar">
+    <item android:title="Estados">
         <menu>
             <item
-                android:id="@+id/actcons_ingreso"
+                android:id="@+id/ver_ing"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Ingresos" />
             <item
-                android:id="@+id/actcons_egreso"
+                android:id="@+id/ver_eg"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Egresos" />
             <item
-                android:id="@+id/actcons_transferencia"
+                android:id="@+id/ver_cuentas"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Cuentas" />
+            <item
+                android:id="@+id/ver_trans"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Transferencias" />
 
