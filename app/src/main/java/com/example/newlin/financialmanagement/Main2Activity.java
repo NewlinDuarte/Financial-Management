@@ -92,14 +92,13 @@ public class Main2Activity extends AppCompatActivity
         if (id == R.id.actreg_ingreso) {
             IngresoFragment fragment = new IngresoFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.add(fragment, "ingreso");
+            fragmentTransaction.add(fragment, "fragment_ingreso");
             fragmentTransaction.replace(R.id.main_view , fragment);
             fragmentTransaction.commit();
             //para probar funcionamiento del navbar
             Context context = getApplicationContext();
             CharSequence text = "Hello toast!";
             int duration = Toast.LENGTH_SHORT;
-
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         } else if (id == R.id.actreg_egreso) {
