@@ -1,4 +1,4 @@
-package com.example.newlin.financialmanagement;
+package com.cendev.cenproyects.financialmanagement;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

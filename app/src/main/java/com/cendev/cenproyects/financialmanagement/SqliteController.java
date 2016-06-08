@@ -1,4 +1,4 @@
-package com.example.newlin.financialmanagement;
+package com.cendev.cenproyects.financialmanagement;
 
 import android.content.ContentValues;
 import android.content.Context;

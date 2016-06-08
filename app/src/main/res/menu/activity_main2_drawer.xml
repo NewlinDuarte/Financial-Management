@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:title="Estados">
+        <menu>
+            <item
+                android:id="@+id/ver_ing"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Ingresos" />
+            <item
+                android:id="@+id/ver_eg"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Egresos" />
+            <item
+                android:id="@+id/ver_cuentas"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Cuentas" />
+            <item
+                android:id="@+id/ver_trans"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Transferencias" />
+
+        </menu>
+    </item>
+
 
         <item android:title="Agregar Nuev@">
             <menu>
@@ -23,26 +45,6 @@
             </menu>
         </item>
 
-    <item android:title="Estados">
-        <menu>
-            <item
-                android:id="@+id/ver_ing"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Ingresos" />
-            <item
-                android:id="@+id/ver_eg"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Egresos" />
-            <item
-                android:id="@+id/ver_cuentas"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Cuentas" />
-            <item
-                android:id="@+id/ver_trans"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Transferencias" />
 
-        </menu>
-    </item>
 
 </menu>

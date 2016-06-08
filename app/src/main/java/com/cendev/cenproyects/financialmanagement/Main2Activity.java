@@ -1,7 +1,6 @@
-package com.example.newlin.financialmanagement;
+package com.cendev.cenproyects.financialmanagement;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -121,7 +120,11 @@ public class Main2Activity extends AppCompatActivity
         } else if (id == R.id.ver_eg) {
 
         } else if (id == R.id.ver_cuentas) {
-        //Proximamente
+            EstadosCuentas fragment = new EstadosCuentas();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(fragment, "eCuentas");
+            fragmentTransaction.replace(R.id.main_view , fragment);
+            fragmentTransaction.commit();
         }else if (id == R.id.ver_trans) {
             //Proximamente
         }
