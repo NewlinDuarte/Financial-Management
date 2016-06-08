@@ -15,7 +15,7 @@ android {
 
         release {
 
-            storeFile file('E:\\Icons\\FinancialManagement.jks')
+          //  storeFile file('E:\\Icons\\FinancialManagement.jks')
             storePassword "christ1234"
             keyAlias "ivitec"
             keyPassword "christ1234"
