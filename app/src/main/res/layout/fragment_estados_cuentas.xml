@@ -6,6 +6,9 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+
+
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,46 +35,12 @@
         android:entries="@array/BuscarCuenta"
         android:spinnerMode="dialog" />
 
-        <android.support.v7.widget.CardView
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/card_view"
-            android:layout_gravity="center"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/BuscarButton"
-            android:layout_marginTop="23dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/BuscarButton"
-            android:layout_alignEnd="@+id/BuscarButton"
-            android:clickable="true"
-            android:longClickable="true">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        />
 
-            <ImageView
-                android:id="@+id/cuentalogo"
-
-                android:layout_marginTop="0dp"
-                android:layout_marginLeft="30dp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@mipmap/ic_launcher" />
-
-            <TextView
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="100dp"
-                android:layout_width="100dp"
-                android:layout_height="20dp"
-                android:text="Hola Card"/>
-
-            <TextView
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="290dp"
-                android:layout_width="100dp"
-                android:layout_height="20dp"
-                android:text="$0.0"/>
-
-
-        </android.support.v7.widget.CardView>
 
 </RelativeLayout>
-

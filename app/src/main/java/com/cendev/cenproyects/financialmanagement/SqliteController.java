@@ -21,7 +21,12 @@ public class SqliteController extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        String query; query = "CREATE TABLE "+ DatabaseContract.IngresoEntry.TABLE_NAME +" ( "+ DatabaseContract.IngresoEntry.COLUMN_NAME_INGRESO_ID+" INTEGER PRIMARY KEY, "+ DatabaseContract.IngresoEntry.COLUMN_NAME_CANTIDAD+" REAL)";
+        String query;
+        // Creacion de la tabla ingresos
+        query = "CREATE TABLE "+ DatabaseContract.IngresoEntry.TABLE_NAME +" ( "+ DatabaseContract.IngresoEntry.COLUMN_NAME_INGRESO_ID+" INTEGER PRIMARY KEY, "+ DatabaseContract.IngresoEntry.COLUMN_NAME_CANTIDAD+" REAL);";
+        db.execSQL(query);
+        // Creacion de la tabla cuentas
+        query = " CREATE TABLE "+ DatabaseContract.CuentaEntry.TABLE_NAME +" ( "+ DatabaseContract.CuentaEntry.COLUMN_NAME_CUENTA_ID+" INTEGER PRIMARY KEY, "+ DatabaseContract.CuentaEntry.COLUMN_NAME_NOMBRE+" TEXT," + DatabaseContract.CuentaEntry.COLUMN_NAME_BALANCE+" REAL);";
         db.execSQL(query);
     }
 
@@ -30,6 +35,8 @@ public class SqliteController extends SQLiteOpenHelper {
 
 
     }
+
+    //Metodos para tabla Ingresos
 
     public void insertIngreso(float cantidad){
         SQLiteDatabase database = this.getWritableDatabase();
@@ -54,5 +61,23 @@ public class SqliteController extends SQLiteOpenHelper {
         cursor.moveToFirst();
         long item = cursor.getLong(cursor.getColumnIndexOrThrow("Total"));
         return item;
+    }
+
+
+    // Metodos para tabla Cuentas
+
+    public void insertCuenta(String nombre,float balance){
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DatabaseContract.CuentaEntry.COLUMN_NAME_NOMBRE, nombre);
+        values.put(DatabaseContract.CuentaEntry.COLUMN_NAME_BALANCE, balance);
+        database.insert(DatabaseContract.CuentaEntry.TABLE_NAME, null, values);
+    }
+
+    public Cursor listarCuentas(){
+        SQLiteDatabase database = this.getReadableDatabase();
+        String query = "Select * from " + DatabaseContract.CuentaEntry.TABLE_NAME;
+        Cursor c = database.rawQuery(query,null);
+        return c;
     }
 }
