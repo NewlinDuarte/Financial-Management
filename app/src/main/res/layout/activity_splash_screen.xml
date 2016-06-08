@@ -24,7 +24,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Financial"
         android:id="@+id/textView3"
-        android:layout_marginBottom="77dp"
+        android:layout_marginBottom="66dp"
         android:textStyle="bold"
         android:layout_above="@+id/progressBar"
         android:layout_alignLeft="@+id/progressBar"
@@ -40,7 +40,33 @@
         android:textColor="@color/background_material_light"
         android:textStyle="bold"
         android:layout_alignTop="@+id/textView3"
-        android:layout_toRightOf="@+id/textView3"
-        android:layout_toEndOf="@+id/textView3" />
+        android:layout_toRightOf="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="CEN"
+        android:id="@+id/textView2"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/progressBar"
+        android:layout_alignStart="@+id/progressBar"
+        android:textSize="45dp"
+        android:layout_toStartOf="@+id/textView4"
+        android:layout_toLeftOf="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Dev"
+        android:id="@+id/textView5"
+        android:textStyle="bold|italic"
+        android:textSize="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2"
+        android:textColor="@android:color/primary_text_dark" />
 
 </RelativeLayout>
