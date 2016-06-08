@@ -15,85 +15,59 @@
         android:id="@+id/RelativeLayout">
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Monto:"
-            android:id="@+id/textView2"
-            android:layout_marginTop="30dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/IngresoTextBox"
-            android:layout_alignBottom="@+id/textView2"
+            android:hint="Monto"
+            android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:hint="Monto" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Cuenta:"
-            android:id="@+id/textView5"
-            android:layout_marginTop="45dp"
-            android:layout_below="@+id/textView2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Descripcion"
-            android:id="@+id/textView6"
-            android:layout_above="@+id/GuardarButton"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="51dp" />
+            style="@android:style/Widget.Material.EditText" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/DescripcionTextBox"
-            android:layout_alignBottom="@+id/textView6"
             android:hint="Descripcion"
-            android:layout_alignLeft="@+id/IngresoTextBox"
-            android:layout_alignStart="@+id/IngresoTextBox"
-            android:layout_alignRight="@+id/IngresoTextBox"
-            android:layout_alignEnd="@+id/IngresoTextBox" />
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/spinner"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            style="@android:style/Widget.Material.EditText" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Guardar"
             android:id="@+id/GuardarButton"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:background="@color/colorPrimaryDark"
             android:enabled="true"
             android:clickable="true"
             android:onClick="insertIngreso"
-            android:layout_alignRight="@+id/IngresoTextBox"
-            android:layout_alignEnd="@+id/IngresoTextBox" />
+            android:layout_below="@+id/DescripcionTextBox"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="113dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spinner"
-            android:layout_alignLeft="@+id/DescripcionTextBox"
-            android:layout_alignStart="@+id/DescripcionTextBox"
-            android:layout_alignTop="@+id/textView5"
-            android:layout_alignBottom="@+id/textView5"
-            android:spinnerMode="dialog" />
+            android:spinnerMode="dialog"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/IngresoTextBox"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:clickable="true" />
 
     </RelativeLayout>
 </ScrollView>
