@@ -1,11 +1,11 @@
 <ScrollView xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/scrollView"
     android:layout_alignBottom="@+id/expandableListView"
     android:layout_alignLeft="@+id/TotalIngresoTextBox"
     android:layout_alignStart="@+id/TotalIngresoTextBox"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:fillViewport="true"
     android:layout_alignParentBottom="true">
 

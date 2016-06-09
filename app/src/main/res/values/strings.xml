@@ -15,10 +15,17 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
-    <string name="BuscarCuenta">Elige algun parametro</string>
+    <string name="guardar">Guardar</string>
+
     <string-array name="BuscarCuenta">
-        <item>Cuentas Ingreso</item>
-        <item>Cuentas Gastos</item>
-        <item>Cuentas Ahorro</item>
+        <item>Cuentas de Ingresos</item>
+        <item>Cuentas de Gastos</item>
+        <item>Cuentas de Ahorros</item>
+    </string-array>
+
+    <string-array name="BuscarCuenta_Value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 </resources>

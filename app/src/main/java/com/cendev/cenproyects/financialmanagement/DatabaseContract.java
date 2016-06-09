@@ -21,6 +21,7 @@ public final class DatabaseContract {
         public static final String TABLE_NAME = "cuentas";
         public static final String COLUMN_NAME_CUENTA_ID = "cuentaid";
         public static final String COLUMN_NAME_NOMBRE = "nombre";
+        public static final String COLUMN_NAME_TIPO = "tipo";
         public static final String COLUMN_NAME_BALANCE = "balance";
     }
 

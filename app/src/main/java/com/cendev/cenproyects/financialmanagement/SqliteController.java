@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Newlin on 6/2/2016.
  */
@@ -26,7 +29,7 @@ public class SqliteController extends SQLiteOpenHelper {
         query = "CREATE TABLE "+ DatabaseContract.IngresoEntry.TABLE_NAME +" ( "+ DatabaseContract.IngresoEntry.COLUMN_NAME_INGRESO_ID+" INTEGER PRIMARY KEY, "+ DatabaseContract.IngresoEntry.COLUMN_NAME_CANTIDAD+" REAL);";
         db.execSQL(query);
         // Creacion de la tabla cuentas
-        query = " CREATE TABLE "+ DatabaseContract.CuentaEntry.TABLE_NAME +" ( "+ DatabaseContract.CuentaEntry.COLUMN_NAME_CUENTA_ID+" INTEGER PRIMARY KEY, "+ DatabaseContract.CuentaEntry.COLUMN_NAME_NOMBRE+" TEXT," + DatabaseContract.CuentaEntry.COLUMN_NAME_BALANCE+" REAL);";
+        query = " CREATE TABLE "+ DatabaseContract.CuentaEntry.TABLE_NAME +" ( "+ DatabaseContract.CuentaEntry.COLUMN_NAME_CUENTA_ID+" INTEGER PRIMARY KEY, "+ DatabaseContract.CuentaEntry.COLUMN_NAME_NOMBRE+" TEXT," + DatabaseContract.CuentaEntry.COLUMN_NAME_BALANCE+" REAL, " + DatabaseContract.CuentaEntry.COLUMN_NAME_TIPO + " INTEGER);";
         db.execSQL(query);
     }
 
@@ -66,11 +69,12 @@ public class SqliteController extends SQLiteOpenHelper {
 
     // Metodos para tabla Cuentas
 
-    public void insertCuenta(String nombre,float balance){
+    public void insertCuenta(String nombre,float balance, int tipo){
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DatabaseContract.CuentaEntry.COLUMN_NAME_NOMBRE, nombre);
         values.put(DatabaseContract.CuentaEntry.COLUMN_NAME_BALANCE, balance);
+        values.put(DatabaseContract.CuentaEntry.COLUMN_NAME_TIPO, tipo);
         database.insert(DatabaseContract.CuentaEntry.TABLE_NAME, null, values);
     }
 
@@ -81,11 +85,36 @@ public class SqliteController extends SQLiteOpenHelper {
         return c;
     }
 
-    public void editarCuenta(int cuentaId, String nombre){
+  //  public ArrayList<CuentasFragment>
+
+
+    public void  editarCuenta(int cuentaId, String nombre){
         SQLiteDatabase database = this.getReadableDatabase();
         String query = "UPDATE "+ DatabaseContract.CuentaEntry.TABLE_NAME +" SET " + DatabaseContract.CuentaEntry.COLUMN_NAME_NOMBRE + " =  " + nombre + " WHERE cuentaid = "+cuentaId+";";
         database.rawQuery(query,null);
+    }
 
+    public List<String> getCuentasLabels(){
+        List<String> labels = new ArrayList<String>();
 
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + DatabaseContract.CuentaEntry.TABLE_NAME;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                labels.add(cursor.getString(1));
+            } while (cursor.moveToNext());
+        }
+
+        // closing connection
+        cursor.close();
+        db.close();
+
+        // returning lables
+        return labels;
     }
 }

@@ -9,8 +9,13 @@ import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
+
+import com.cendev.cenproyects.BLL.CuentasClass;
 
 
 /**
@@ -38,6 +43,11 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
         View v = inflater.inflate(R.layout.fragment_ingreso, container, false);;
         /*Button mostrar = (Button) v.findViewById(R.id.GuardarButton);
         mostrar.setOnClickListener(this);*/
+        CuentasClass Cuentaclass = new CuentasClass();
+        Spinner Spin = (Spinner) v.findViewById(R.id.spinner);
+        SqliteController sqlite = new SqliteController(getContext());
+        ArrayAdapter spinnerCuentasAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, sqlite.getCuentasLabels());
+        Spin.setAdapter(spinnerCuentasAdapter);
         Button insertar = (Button) v.findViewById(R.id.GuardarButton);
         insertar.setOnClickListener(this);
         return v;
@@ -56,12 +66,13 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
 
 
     // TODO: arreglar findViewById()
-    private void insertIngreso(){
+    private void insertIngreso() {
         SqliteController controller = new SqliteController(this.getContext());
-       EditText edit = (EditText) getView().findViewById(R.id.IngresoTextBox);
-        CharSequence text =  String.valueOf(edit.getText());
-       controller.insertIngreso(Float.parseFloat(String.valueOf(text)));
+        EditText edit = (EditText) getView().findViewById(R.id.IngresoTextBox);
+        CharSequence text = String.valueOf(edit.getText());
+        controller.insertIngreso(Float.parseFloat(String.valueOf(text)));
     }
+
 
 /*    private void mostrarIngreso(){
         SqliteController controller = new SqliteController(this.getContext());
