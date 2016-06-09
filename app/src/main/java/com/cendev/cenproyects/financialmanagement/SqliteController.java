@@ -80,4 +80,12 @@ public class SqliteController extends SQLiteOpenHelper {
         Cursor c = database.rawQuery(query,null);
         return c;
     }
+
+    public void editarCuenta(int cuentaId, String nombre){
+        SQLiteDatabase database = this.getReadableDatabase();
+        String query = "UPDATE "+ DatabaseContract.CuentaEntry.TABLE_NAME +" SET " + DatabaseContract.CuentaEntry.COLUMN_NAME_NOMBRE + " =  " + nombre + " WHERE cuentaid = "+cuentaId+";";
+        database.rawQuery(query,null);
+
+
+    }
 }
