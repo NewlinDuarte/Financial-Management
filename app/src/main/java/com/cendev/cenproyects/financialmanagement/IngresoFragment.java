@@ -3,12 +3,14 @@ package com.cendev.cenproyects.financialmanagement;
 
 import android.app.Activity;
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +18,11 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
 import com.cendev.cenproyects.BLL.CuentasClass;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static android.media.CamcorderProfile.get;
 
 
 /**
@@ -46,8 +53,10 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
         CuentasClass Cuentaclass = new CuentasClass();
         Spinner Spin = (Spinner) v.findViewById(R.id.spinner);
         SqliteController sqlite = new SqliteController(getContext());
-        ArrayAdapter spinnerCuentasAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, sqlite.getCuentasLabels());
+        List<String> labels = sqlite.getCuentasLabels();
+        ArrayAdapter spinnerCuentasAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item,labels );
         Spin.setAdapter(spinnerCuentasAdapter);
+
         Button insertar = (Button) v.findViewById(R.id.GuardarButton);
         insertar.setOnClickListener(this);
         return v;
@@ -65,15 +74,22 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
     }
 
 
-    // TODO: arreglar findViewById()
     private void insertIngreso() {
         SqliteController controller = new SqliteController(this.getContext());
         EditText edit = (EditText) getView().findViewById(R.id.IngresoTextBox);
         CharSequence text = String.valueOf(edit.getText());
-        controller.insertIngreso(Float.parseFloat(String.valueOf(text)));
+        float ingreso = Float.parseFloat(String.valueOf(text));
+        int cuentaid = 0;
+        List<Integer> ids = controller.getCuentasId();
+        Spinner spinner = (Spinner) getView().findViewById(R.id.spinner);
+        cuentaid =  ids.get(spinner.getSelectedItemPosition());
+        Cursor cursor = controller.selectCuenta(cuentaid);
+        cursor.moveToLast();
+        float balance = cursor.getFloat(cursor.getColumnIndexOrThrow("balance")) + ingreso ;
+        controller.insertIngreso(ingreso, cuentaid);
+        controller.editarCuenta(cuentaid, cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.CuentaEntry.COLUMN_NAME_NOMBRE)),balance);
+
     }
-
-
 /*    private void mostrarIngreso(){
         SqliteController controller = new SqliteController(this.getContext());
         long item = controller.selectIngreso(1);

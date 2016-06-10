@@ -25,12 +25,13 @@ public class SqliteController extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db){
         String query;
-        // Creacion de la tabla ingresos
-        query = "CREATE TABLE "+ DatabaseContract.IngresoEntry.TABLE_NAME +" ( "+ DatabaseContract.IngresoEntry.COLUMN_NAME_INGRESO_ID+" INTEGER PRIMARY KEY, "+ DatabaseContract.IngresoEntry.COLUMN_NAME_CANTIDAD+" REAL);";
-        db.execSQL(query);
         // Creacion de la tabla cuentas
         query = " CREATE TABLE "+ DatabaseContract.CuentaEntry.TABLE_NAME +" ( "+ DatabaseContract.CuentaEntry.COLUMN_NAME_CUENTA_ID+" INTEGER PRIMARY KEY, "+ DatabaseContract.CuentaEntry.COLUMN_NAME_NOMBRE+" TEXT," + DatabaseContract.CuentaEntry.COLUMN_NAME_BALANCE+" REAL, " + DatabaseContract.CuentaEntry.COLUMN_NAME_TIPO + " INTEGER);";
         db.execSQL(query);
+        // Creacion de la tabla ingresos
+        query = "CREATE TABLE "+ DatabaseContract.IngresoEntry.TABLE_NAME +" ( "+ DatabaseContract.IngresoEntry.COLUMN_NAME_INGRESO_ID+" INTEGER PRIMARY KEY, "+ DatabaseContract.IngresoEntry.COLUMN_NAME_CANTIDAD+" REAL, "+DatabaseContract.IngresoEntry.COLUMG_NAME_CUENTA_ID+" INTEGER, FOREIGN KEY("+DatabaseContract.IngresoEntry.COLUMG_NAME_CUENTA_ID+") REFERENCES  "+ DatabaseContract.CuentaEntry.TABLE_NAME +"("+DatabaseContract.CuentaEntry.COLUMN_NAME_CUENTA_ID+"));";
+        db.execSQL(query);
+
     }
 
     @Override
@@ -41,10 +42,11 @@ public class SqliteController extends SQLiteOpenHelper {
 
     //Metodos para tabla Ingresos
 
-    public void insertIngreso(float cantidad){
+    public void insertIngreso(float cantidad, int cuentaId){
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("cantidad", cantidad);
+        values.put(DatabaseContract.IngresoEntry.COLUMN_NAME_CANTIDAD, cantidad);
+        values.put(DatabaseContract.IngresoEntry.COLUMG_NAME_CUENTA_ID, cuentaId );
         database.insert("ingresos", null, values);
     }
 
@@ -85,13 +87,26 @@ public class SqliteController extends SQLiteOpenHelper {
         return c;
     }
 
+    public Cursor selectCuenta(int cuentaId){
+        SQLiteDatabase database = this.getReadableDatabase();
+        String query = "SELECT * FROM " + DatabaseContract.CuentaEntry.TABLE_NAME + " WHERE " + DatabaseContract.CuentaEntry.COLUMN_NAME_CUENTA_ID + " = " + cuentaId + ";";
+        Cursor c = database.rawQuery(query,null);
+        return c;
+    }
+
+
   //  public ArrayList<CuentasFragment>
 
 
-    public void  editarCuenta(int cuentaId, String nombre){
+    public void  editarCuenta(int cuentaId, String nombre, float balance){
         SQLiteDatabase database = this.getReadableDatabase();
-        String query = "UPDATE "+ DatabaseContract.CuentaEntry.TABLE_NAME +" SET " + DatabaseContract.CuentaEntry.COLUMN_NAME_NOMBRE + " =  " + nombre + " WHERE cuentaid = "+cuentaId+";";
-        database.rawQuery(query,null);
+
+        ContentValues newValues = new ContentValues();
+        newValues.put(DatabaseContract.CuentaEntry.COLUMN_NAME_NOMBRE, nombre);
+        newValues.put(DatabaseContract.CuentaEntry.COLUMN_NAME_BALANCE, balance);
+
+        database.update(DatabaseContract.CuentaEntry.TABLE_NAME, newValues, DatabaseContract.CuentaEntry.COLUMN_NAME_CUENTA_ID + " = "+cuentaId, null);
+        database.close();
     }
 
     public List<String> getCuentasLabels(){
@@ -116,5 +131,27 @@ public class SqliteController extends SQLiteOpenHelper {
 
         // returning lables
         return labels;
+    }
+
+    public List<Integer> getCuentasId()
+    {
+        List<Integer> ids = new ArrayList<Integer>();
+
+        String selectQuery = "SELECT  " + DatabaseContract.CuentaEntry.COLUMN_NAME_CUENTA_ID + " FROM " + DatabaseContract.CuentaEntry.TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                ids.add(cursor.getInt(0));
+            } while (cursor.moveToNext());
+        }
+
+        // closing connection
+        cursor.close();
+        db.close();
+
+        // returning Id
+        return ids;
     }
 }
