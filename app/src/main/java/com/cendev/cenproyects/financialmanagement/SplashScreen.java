@@ -7,17 +7,14 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 
 public class SplashScreen extends AppCompatActivity {
-    public static final int segundos = 8;
+    public static final int segundos = 1;
     public static final int milisegundos = segundos * 1000;
     public static final int delay = 2;
-    private ProgressBar pbprogreso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        pbprogreso = (ProgressBar) findViewById(R.id.progressBar);
-        pbprogreso.setMax(maximo_progreso());
         empezaranimacion();
     }
 
@@ -26,7 +23,6 @@ public class SplashScreen extends AppCompatActivity {
 
             @Override
             public void onTick(long millisUntilFinished) {
-                pbprogreso.setProgress(establecer_progreso((millisUntilFinished)));
             }
 
             @Override
