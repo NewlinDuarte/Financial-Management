@@ -4,36 +4,30 @@
     <item android:title="Estados">
         <menu>
             <item
-                android:id="@+id/ver_ing"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Ingresos" />
-            <item
-                android:id="@+id/ver_eg"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Egresos" />
-            <item
                 android:id="@+id/ver_cuentas"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/ic_credit_card"
                 android:title="Cuentas" />
             <item
-                android:id="@+id/ver_trans"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Transferencias" />
-
+                android:id="@+id/ver_cobros"
+                android:icon="@drawable/ic_arrow_up"
+                android:title="Cobros" />
+            <item
+                android:id="@+id/ver_deudas"
+                android:icon="@drawable/ic_arrow_down"
+                android:title="Deudas" />
         </menu>
     </item>
 
-
-        <item android:title="Agregar Nuev@">
+        <item android:title="Movimientos">
             <menu>
         <item
             android:id="@+id/actreg_ingreso"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Ingresos" />
+            android:icon="@drawable/ic_arrow_up"
+            android:title="Ingreso" />
         <item
             android:id="@+id/actreg_egreso"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Egresos" />
+            android:icon="@drawable/ic_arrow_down"
+            android:title="Gasto" />
         <item
             android:id="@+id/actreg_cuenta"
             android:icon="@drawable/ic_menu_slideshow"
@@ -45,6 +39,13 @@
             </menu>
         </item>
 
-
+    <item android:title="Preferencias">
+        <menu>
+            <item
+                android:id="@+id/act_config"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Configuraciones" />
+        </menu>
+    </item>
 
 </menu>

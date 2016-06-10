@@ -94,12 +94,6 @@ public class Main2Activity extends AppCompatActivity
             fragmentTransaction.add(fragment, "fragment_ingreso");
             fragmentTransaction.replace(R.id.main_view , fragment);
             fragmentTransaction.commit();
-            //para probar funcionamiento del navbar
-            Context context = getApplicationContext();
-            CharSequence text = "Hello toast!";
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
         } else if (id == R.id.actreg_egreso) {
             EgresoFragment fragment = new EgresoFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -115,18 +109,12 @@ public class Main2Activity extends AppCompatActivity
             fragmentTransaction.add(fragment, "cuenta");
             fragmentTransaction.replace(R.id.main_view , fragment);
             fragmentTransaction.commit();
-        } else if (id == R.id.ver_ing) {
-
-        } else if (id == R.id.ver_eg) {
-
         } else if (id == R.id.ver_cuentas) {
             EstadosCuentas fragment = new EstadosCuentas();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.add(fragment, "eCuentas");
             fragmentTransaction.replace(R.id.main_view , fragment);
             fragmentTransaction.commit();
-        }else if (id == R.id.ver_trans) {
-            //Proximamente
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
