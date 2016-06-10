@@ -19,7 +19,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:hint="Nombre"
-            style="@android:style/Widget.Material.EditText"
+            style="@style/Base.V12.Widget.AppCompat.EditText"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:text="Nombre" />
