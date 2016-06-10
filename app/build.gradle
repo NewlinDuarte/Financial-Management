@@ -7,9 +7,9 @@ android {
         applicationId "com.cendev.cenproyects.financialmanagement"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 101
-        versionName "1.0.1"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionCode 102
+        versionName "1.0.2"
+        testInstrumentationRunner "androi2d.support.test.runner.AndroidJUnitRunner"
     }
     productFlavors {
     }
