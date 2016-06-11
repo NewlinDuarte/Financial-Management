@@ -1,6 +1,7 @@
 package com.cendev.cenproyects.financialmanagement;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -88,18 +89,8 @@ public class Main2Activity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.actreg_ingreso) {
-            IngresoFragment fragment = new IngresoFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.add(fragment, "fragment_ingreso");
-            fragmentTransaction.replace(R.id.main_view , fragment);
-            fragmentTransaction.commit();
-        } else if (id == R.id.actreg_egreso) {
-            EgresoFragment fragment = new EgresoFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.add(fragment, "egreso");
-            fragmentTransaction.replace(R.id.main_view , fragment);
-            fragmentTransaction.commit();
+        if (id == R.id.actreg_movimientos) {
+            startActivity(new Intent(Main2Activity.this, MovimientoActivity.class));
         } else if (id == R.id.actreg_transferencia) {
 
 

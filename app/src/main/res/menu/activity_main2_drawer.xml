@@ -21,13 +21,9 @@
         <item android:title="Movimientos">
             <menu>
         <item
-            android:id="@+id/actreg_ingreso"
+            android:id="@+id/actreg_movimientos"
             android:icon="@drawable/ic_arrow_up"
-            android:title="Ingreso" />
-        <item
-            android:id="@+id/actreg_egreso"
-            android:icon="@drawable/ic_arrow_down"
-            android:title="Gasto" />
+            android:title="Movimiento" />
         <item
             android:id="@+id/actreg_cuenta"
             android:icon="@drawable/ic_menu_slideshow"
