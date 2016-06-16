@@ -18,6 +18,14 @@ public final class DatabaseContract {
 
     }
 
+    public static abstract class EgresoEntry implements BaseColumns{
+        public static final String TABLE_NAME = "egresos";
+        public static final String COLUMN_NAME_EGRESO_ID = "egresoid";
+        public static final String COLUMN_NAME_CANTIDAD = "cantidad";
+        public static final String COLUMN_NAME_CUENTA_ID = "cuentaid";
+
+    }
+
     public static abstract class CuentaEntry implements BaseColumns{
         public static final String TABLE_NAME = "cuentas";
         public static final String COLUMN_NAME_CUENTA_ID = "cuentaid";

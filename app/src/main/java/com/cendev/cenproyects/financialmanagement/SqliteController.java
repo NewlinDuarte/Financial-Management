@@ -32,6 +32,10 @@ public class SqliteController extends SQLiteOpenHelper {
         query = "CREATE TABLE "+ DatabaseContract.IngresoEntry.TABLE_NAME +" ( "+ DatabaseContract.IngresoEntry.COLUMN_NAME_INGRESO_ID+" INTEGER PRIMARY KEY, "+ DatabaseContract.IngresoEntry.COLUMN_NAME_CANTIDAD+" REAL, "+DatabaseContract.IngresoEntry.COLUMG_NAME_CUENTA_ID+" INTEGER, FOREIGN KEY("+DatabaseContract.IngresoEntry.COLUMG_NAME_CUENTA_ID+") REFERENCES  "+ DatabaseContract.CuentaEntry.TABLE_NAME +"("+DatabaseContract.CuentaEntry.COLUMN_NAME_CUENTA_ID+"));";
         db.execSQL(query);
 
+        // Creacion de la tabla egresos
+        query = "CREATE TABLE "+ DatabaseContract.EgresoEntry.TABLE_NAME +" ( "+ DatabaseContract.EgresoEntry.COLUMN_NAME_EGRESO_ID+" INTEGER PRIMARY KEY, "+ DatabaseContract.EgresoEntry.COLUMN_NAME_CANTIDAD+" REAL, "+DatabaseContract.EgresoEntry.COLUMN_NAME_CUENTA_ID+" INTEGER, FOREIGN KEY("+DatabaseContract.EgresoEntry.COLUMN_NAME_CUENTA_ID+") REFERENCES  "+ DatabaseContract.CuentaEntry.TABLE_NAME +"("+DatabaseContract.CuentaEntry.COLUMN_NAME_CUENTA_ID+"));";
+        db.execSQL(query);
+
     }
 
     @Override
@@ -66,6 +70,15 @@ public class SqliteController extends SQLiteOpenHelper {
         cursor.moveToFirst();
         long item = cursor.getLong(cursor.getColumnIndexOrThrow("Total"));
         return item;
+    }
+    // Metodos para tabla Egresos
+
+    public void insertEgreso(float cantidad, int cuentaId){
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DatabaseContract.EgresoEntry.COLUMN_NAME_CANTIDAD, cantidad);
+        values.put(DatabaseContract.EgresoEntry.COLUMN_NAME_CUENTA_ID, cuentaId );
+        database.insert(DatabaseContract.EgresoEntry.TABLE_NAME, null, values);
     }
 
 
