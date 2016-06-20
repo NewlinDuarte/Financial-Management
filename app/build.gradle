@@ -4,11 +4,11 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
     defaultConfig {
-        applicationId "com.cendev.cenproyects.financialmanagement"
+        applicationId "com.cendev.cenproyect.financialmanagement"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 105
-        versionName "1.0.5"
+        versionCode 1
+        versionName "1.0.1"
         testInstrumentationRunner "androi2d.support.test.runner.AndroidJUnitRunner"
     }
     productFlavors {

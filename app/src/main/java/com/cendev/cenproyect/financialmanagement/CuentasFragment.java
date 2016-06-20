@@ -1,4 +1,4 @@
-package com.cendev.cenproyects.financialmanagement;
+package com.cendev.cenproyect.financialmanagement;
 
 
 import android.app.Activity;
@@ -11,9 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.Toast;
 
 

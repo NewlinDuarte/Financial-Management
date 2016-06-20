@@ -1,15 +1,12 @@
-package com.cendev.cenproyects.BLL;
+package com.cendev.cenproyect.BLL;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
-import com.cendev.cenproyects.financialmanagement.DatabaseContract;
-import com.cendev.cenproyects.financialmanagement.SqliteController;
+import com.cendev.cenproyect.financialmanagement.SqliteController;
 
 
 /**

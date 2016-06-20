@@ -1,4 +1,4 @@
-package com.cendev.cenproyects.financialmanagement;
+package com.cendev.cenproyect.financialmanagement;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

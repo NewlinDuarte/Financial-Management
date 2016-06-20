@@ -1,10 +1,9 @@
-package com.cendev.cenproyects.financialmanagement;
+package com.cendev.cenproyect.financialmanagement;
 
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ProgressBar;
 
 public class SplashScreen extends AppCompatActivity {
     public static final int segundos = 1;

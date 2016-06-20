@@ -1,4 +1,4 @@
-package com.cendev.cenproyects.financialmanagement;
+package com.cendev.cenproyect.financialmanagement;
 
 import android.provider.BaseColumns;
 

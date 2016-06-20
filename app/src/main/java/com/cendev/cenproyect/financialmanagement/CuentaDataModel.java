@@ -1,4 +1,4 @@
-package com.cendev.cenproyects.financialmanagement;
+package com.cendev.cenproyect.financialmanagement;
 
 /**
  * Created by Newlin on 6/8/2016.

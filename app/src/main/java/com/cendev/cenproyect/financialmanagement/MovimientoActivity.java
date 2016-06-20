@@ -1,4 +1,4 @@
-package com.cendev.cenproyects.financialmanagement;
+package com.cendev.cenproyect.financialmanagement;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,15 +9,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
-import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.cendev.cenproyects.financialmanagement.R;
-import com.cendev.cenproyects.financialmanagement.IngresoFragment;
-import com.cendev.cenproyects.financialmanagement.EgresoFragment;
 
 public class MovimientoActivity extends AppCompatActivity {
 

@@ -1,9 +1,9 @@
-package com.cendev.cenproyects.common;
+package com.cendev.cenproyect.common;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
-import com.cendev.cenproyects.financialmanagement.IngresoFragment;
+import com.cendev.cenproyect.financialmanagement.IngresoFragment;
 
 import java.util.List;
 

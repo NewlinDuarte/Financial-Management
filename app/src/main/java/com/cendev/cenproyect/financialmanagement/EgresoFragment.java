@@ -1,4 +1,4 @@
-package com.cendev.cenproyects.financialmanagement;
+package com.cendev.cenproyect.financialmanagement;
 
 
 import android.app.Activity;
@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.cendev.cenproyects.BLL.CuentasClass;
+import com.cendev.cenproyect.BLL.CuentasClass;
 
 import java.util.List;
 
