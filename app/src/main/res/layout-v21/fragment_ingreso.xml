@@ -90,8 +90,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/tiempobutton"
-            android:layout_alignEnd="@+id/tiempobutton" />
+            android:layout_alignRight="@+id/input_monto"
+            android:layout_alignEnd="@+id/input_monto" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -112,7 +112,8 @@
             android:layout_marginTop="117dp"
             android:layout_below="@+id/input_monto"
             android:layout_alignRight="@+id/input_monto"
-            android:layout_alignEnd="@+id/input_monto" />
+            android:layout_alignEnd="@+id/input_monto"
+            android:textSize="10dp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -143,41 +144,6 @@
             android:onClick="habilitarPeriodico" />
 
         <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DIAMESANO"
-            android:id="@+id/fechabutton"
-            android:layout_below="@+id/switch1"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/tiempobutton"
-            android:layout_toStartOf="@+id/tiempobutton"
-            android:layout_marginTop="10dp"
-            android:enabled="true"
-            android:background="#0fffffff"
-            android:longClickable="true"
-            android:clickable="true"
-            android:visibility="invisible" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="HORA"
-            android:id="@+id/tiempobutton"
-            android:layout_alignTop="@+id/fechabutton"
-            android:layout_alignRight="@+id/input_monto"
-            android:layout_alignEnd="@+id/input_monto"
-            android:layout_alignLeft="@+id/switch1"
-            android:layout_alignStart="@+id/switch1"
-            android:enabled="true"
-            android:background="#0fffffff"
-            android:clickable="true"
-            android:longClickable="true"
-            android:visibility="invisible" />
-
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancelar"
@@ -190,8 +156,32 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="50dp"
-            android:layout_alignRight="@+id/tiempobutton"
-            android:layout_alignEnd="@+id/tiempobutton" />
+            android:layout_alignRight="@+id/input_monto"
+            android:layout_alignEnd="@+id/input_monto" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner2"
+            android:layout_marginTop="21dp"
+            android:layout_below="@+id/switch1"
+            android:layout_alignRight="@+id/input_monto"
+            android:layout_alignEnd="@+id/input_monto"
+            android:visibility="invisible"
+            android:entries="@array/Dias"
+            android:spinnerMode="dialog" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Los dias:"
+            android:id="@+id/textView8"
+            android:layout_below="@+id/switch1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="10dp"
+            android:visibility="invisible" />
 
     </RelativeLayout>
 </ScrollView>
