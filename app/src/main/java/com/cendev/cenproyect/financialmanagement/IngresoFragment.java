@@ -3,6 +3,7 @@ package com.cendev.cenproyect.financialmanagement;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,9 +15,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 
 import com.cendev.cenproyect.BLL.CuentasClass;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import static android.media.CamcorderProfile.get;
@@ -53,10 +57,22 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
         List<String> labels = sqlite.getCuentasLabels();
         ArrayAdapter spinnerCuentasAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item,labels );
         Spin.setAdapter(spinnerCuentasAdapter);
-
+        SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy");
+        Date todayDate = new Date();
+        String thisDate = currentDate.format(todayDate);
+        Button dias = (Button) v.findViewById(R.id.fechabutton);
+        dias.setText(thisDate);
+        SimpleDateFormat currenttime = new SimpleDateFormat("HH:mm a");
+        Date time = new Date();
+        String thistime = currenttime.format(time);
+        Button tiempo = (Button) v.findViewById(R.id.tiempobutton);
+        tiempo.setText(thistime);
         Button insertar = (Button) v.findViewById(R.id.GuardarButton);
         insertar.setOnClickListener(this);
         return v;
+
+
+
     }
     @Override
     public void onClick(View v) {
@@ -70,6 +86,16 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    private void habilitarPeriodico(){
+        Switch switchs = (Switch) getView().findViewById(R.id.switch1);
+        if(switchs != null) {
+            Button tiempo = (Button) getView().findViewById(R.id.tiempobutton);
+            Button dias = (Button) getView().findViewById(R.id.fechabutton);
+            tiempo.setVisibility(View.VISIBLE);
+            dias.setVisibility(View.VISIBLE);
+        }
+        //HACER QUE SI EL SWITCH ESTA ENCENDIDO APAREZCAN LOS BOTONES.
+    }
 
     private void insertIngreso() {
         SqliteController controller = new SqliteController(this.getContext());
@@ -86,6 +112,10 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
         controller.insertIngreso(ingreso, cuentaid);
         controller.editarCuenta(cuentaid, cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.CuentaEntry.COLUMN_NAME_NOMBRE)),balance);
 
+    }
+
+    private void cancelarMovimiento(View v) {
+        getActivity().getFragmentManager().popBackStack();
     }
 /*    private void mostrarIngreso(){
         SqliteController controller = new SqliteController(this.getContext());

@@ -16,7 +16,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Main2Activity" />
-        <activity android:name=".MovimientoActivity"></activity>
+        <activity android:name=".MovimientoActivity">
+            android:windowSoftInputMode="adjustNothing"
+        </activity>
     </application>
 
 </manifest>
