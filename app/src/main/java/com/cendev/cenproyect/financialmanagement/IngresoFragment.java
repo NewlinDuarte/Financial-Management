@@ -2,12 +2,20 @@ package com.cendev.cenproyect.financialmanagement;
 
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +25,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 
+import com.cendev.cenproyect.BLL.AlarmReceiver;
 import com.cendev.cenproyect.BLL.CuentasClass;
+import com.cendev.cenproyect.BLL.Resolver;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import static android.content.Context.ALARM_SERVICE;
 import static android.media.CamcorderProfile.get;
 
 
@@ -31,6 +42,7 @@ import static android.media.CamcorderProfile.get;
  */
 public class IngresoFragment extends Fragment implements View.OnClickListener {
     FragmentActivity listener;
+    private PendingIntent alarmIntent;
 
     public IngresoFragment() {
         // Required empty public constructor
@@ -51,6 +63,7 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
         View v = inflater.inflate(R.layout.fragment_ingreso, container, false);;
         /*Button mostrar = (Button) v.findViewById(R.id.GuardarButton);
         mostrar.setOnClickListener(this);*/
+
         CuentasClass Cuentaclass = new CuentasClass();
         Spinner Spin = (Spinner) v.findViewById(R.id.spinner);
         SqliteController sqlite = new SqliteController(getContext());
@@ -86,13 +99,42 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
         List<Integer> ids = controller.getCuentasId();
         Spinner spinner = (Spinner) getView().findViewById(R.id.spinner);
         cuentaid =  ids.get(spinner.getSelectedItemPosition());
+        controller.insertIngreso(ingreso, cuentaid);
+        Switch repeat = (Switch) getView().findViewById(R.id.switch1);
+        if( !repeat.isChecked()){
+            AlarmManager alarmManager = (AlarmManager) this.getContext().getSystemService(this.getContext().ALARM_SERVICE);
+            Intent intent = new Intent(this.getContext(), AlarmReceiver.class);
+            intent.putExtra("success", "Se ha insertado un ingreso");
+            intent.putExtra("cuentaid", cuentaid);
+            intent.putExtra("ingreso", ingreso);
+            alarmIntent = PendingIntent.getBroadcast(this.getContext(), 0, intent, 0);
+            alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                    SystemClock.currentThreadTimeMillis() + 5000,
+                    SystemClock.currentThreadTimeMillis() + 5000, alarmIntent);
+        }
+
+    }
+/*//TODO: arreglar metodo despues de terminar de reemplazar SqliteController con Resolver
+    private void insertIngreso() {
+        Resolver resolver = new Resolver();
+        SqliteController controller = new SqliteController(this.getContext());
+        Uri uri = Uri.parse(DatabaseContract.IngresoEntry.TABLE_NAME);
+        EditText edit = (EditText) getView().findViewById(R.id.IngresoTextBox);
+        CharSequence text = String.valueOf(edit.getText());
+        float ingreso = Float.parseFloat(String.valueOf(text));
+        int cuentaid = 0;
+        List<Integer> ids = controller.getCuentasId();
+        Spinner spinner = (Spinner) getView().findViewById(R.id.spinner);
+        cuentaid =  ids.get(spinner.getSelectedItemPosition());
         Cursor cursor = controller.selectCuenta(cuentaid);
         cursor.moveToLast();
         float balance = cursor.getFloat(cursor.getColumnIndexOrThrow("balance")) + ingreso ;
-        controller.insertIngreso(ingreso, cuentaid);
-        controller.editarCuenta(cuentaid, cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.CuentaEntry.COLUMN_NAME_NOMBRE)),balance);
-
-    }
+        ContentValues values = new ContentValues();
+        //insertando valores a insertar en values
+        values.put(DatabaseContract.IngresoEntry.COLUMG_NAME_CUENTA_ID, cuentaid);
+        values.put(DatabaseContract.IngresoEntry.COLUMN_NAME_CANTIDAD, ingreso);
+        resolver.insert(uri, values);
+    }*/
 
     private void cancelarMovimiento(View v) {
         getActivity().getFragmentManager().popBackStack();
@@ -112,4 +154,7 @@ public class IngresoFragment extends Fragment implements View.OnClickListener {
         toast.show();
 
     } */
+
+
+
 }

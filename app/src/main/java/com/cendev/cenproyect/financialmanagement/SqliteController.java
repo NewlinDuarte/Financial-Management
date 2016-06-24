@@ -52,6 +52,12 @@ public class SqliteController extends SQLiteOpenHelper {
         values.put(DatabaseContract.IngresoEntry.COLUMN_NAME_CANTIDAD, cantidad);
         values.put(DatabaseContract.IngresoEntry.COLUMG_NAME_CUENTA_ID, cuentaId );
         database.insert("ingresos", null, values);
+
+        Cursor cuenta = selectCuenta(cuentaId);
+        cuenta.moveToLast();
+        float balance = cuenta.getFloat(cuenta.getColumnIndexOrThrow("balance")) + cantidad ;
+        editarCuenta(cuentaId, cuenta.getString(cuenta.getColumnIndexOrThrow(DatabaseContract.CuentaEntry.COLUMN_NAME_NOMBRE)),balance);
+
     }
 
     public long selectIngreso(int id){
@@ -73,12 +79,14 @@ public class SqliteController extends SQLiteOpenHelper {
     }
     // Metodos para tabla Egresos
 
-    public void insertEgreso(float cantidad, int cuentaId){
+    public void insertEgreso(float cantidad, int cuentaId) {
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DatabaseContract.EgresoEntry.COLUMN_NAME_CANTIDAD, cantidad);
-        values.put(DatabaseContract.EgresoEntry.COLUMN_NAME_CUENTA_ID, cuentaId );
+        values.put(DatabaseContract.EgresoEntry.COLUMN_NAME_CUENTA_ID, cuentaId);
         database.insert(DatabaseContract.EgresoEntry.TABLE_NAME, null, values);
+
+
     }
 
 
