@@ -1,6 +1,7 @@
 package com.cendev.cenproyect.financialmanagement;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -30,7 +31,6 @@ public class Main2Activity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setImageResource(R.drawable.ic_arrow_up);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,8 +105,9 @@ public class Main2Activity extends AppCompatActivity
             fragmentTransaction.add(fragment, "eCuentas");
             fragmentTransaction.replace(R.id.main_view , fragment);
             fragmentTransaction.commit();
+        } else if (id == R.id.act_config) {
+            startActivity(new Intent(Main2Activity.this, PreferenciasActivity.class));
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

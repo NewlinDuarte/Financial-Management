@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:title="Hola">
+        <menu>
+            <item
+                android:id="@+id/abrir_princiapl"
+                android:icon="@drawable/ic_home"
+                android:title="Principal" />
+        </menu>
+    </item>
+
     <item android:title="Movimientos">
         <menu>
             <item
                 android:id="@+id/actreg_movimientos"
-                android:icon="@drawable/ic_arrow_up"
+                android:icon="@drawable/ic_arrow_movement"
                 android:title="Movimiento" />
             <item
                 android:id="@+id/actreg_cuenta"
-                android:icon="@drawable/ic_menu_slideshow"
+                android:icon="@drawable/ic_account_balance"
                 android:title="Cuenta" />
             <item
                 android:id="@+id/actreg_transferencia"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ic_transfer"
                 android:title="Transferencia" />
         </menu>
     </item>
@@ -30,17 +39,18 @@
                 android:title="Cuentas" />
             <item
                 android:id="@+id/ver_deudas"
-                android:icon="@drawable/ic_arrow_down"
+                android:icon="@drawable/ic_moneybag_debt"
                 android:title="Deudas" />
         </menu>
     </item>
 
     <item android:title="Reporte">
+
         <menu>
             <item
                 android:id="@+id/actrep_estado"
-                android:icon="@drawable/ic_arrow_up"
-                android:title="Estado de Situacion" />
+                android:icon="@drawable/ic_report"
+                android:title="Estado de Situación" />
         </menu>
     </item>
 
@@ -49,8 +59,8 @@
         <menu>
             <item
                 android:id="@+id/act_config"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="Configuraciones" />
+                android:icon="@drawable/ic_settings"
+                android:title="Configuración" />
         </menu>
     </item>
 

@@ -39,6 +39,8 @@ public class MovimientoActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
+        toolbar.setSubtitle("Registrar Movimiento");
     }
 
     private void setupViewPager(ViewPager viewPager) {
