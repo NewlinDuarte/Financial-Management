@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Estados">
+    <item android:title="Movimientos">
         <menu>
             <item
-                android:id="@+id/ver_cuentas"
-                android:icon="@drawable/ic_credit_card"
-                android:title="Cuentas" />
-            <item
-                android:id="@+id/ver_cobros"
+                android:id="@+id/actreg_movimientos"
                 android:icon="@drawable/ic_arrow_up"
-                android:title="Cobros" />
+                android:title="Movimiento" />
+            <item
+                android:id="@+id/actreg_cuenta"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Cuenta" />
+            <item
+                android:id="@+id/actreg_transferencia"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Transferencia" />
+        </menu>
+    </item>
+
+    <item android:title="Consultas">
+        <menu>
+            <item
+                android:id="@+id/ver_efectivo"
+                android:icon="@drawable/ic_local_atm"
+                android:title="Efectivos" />
+            <item
+                android:id="@+id/ver_cuentas"
+                android:icon="@drawable/ic_account_balance"
+                android:title="Cuentas" />
             <item
                 android:id="@+id/ver_deudas"
                 android:icon="@drawable/ic_arrow_down"
@@ -18,22 +35,15 @@
         </menu>
     </item>
 
-        <item android:title="Movimientos">
-            <menu>
-        <item
-            android:id="@+id/actreg_movimientos"
-            android:icon="@drawable/ic_arrow_up"
-            android:title="Movimiento" />
-        <item
-            android:id="@+id/actreg_cuenta"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Cuenta" />
-        <item
-            android:id="@+id/actreg_transferencia"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Transferencia" />
-            </menu>
-        </item>
+    <item android:title="Reporte">
+        <menu>
+            <item
+                android:id="@+id/actrep_estado"
+                android:icon="@drawable/ic_arrow_up"
+                android:title="Estado de Situacion" />
+        </menu>
+    </item>
+
 
     <item android:title="Preferencias">
         <menu>

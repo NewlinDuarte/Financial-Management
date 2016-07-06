@@ -44,7 +44,9 @@ public class MovimientoActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new IngresoFragment(), "Nuevo Ingreso");
-        adapter.addFragment(new EgresoFragment(), "Nuevo Egreso");
+        adapter.addFragment(new EgresoFragment(), "Nuevo Gasto");
+        adapter.addFragment(new DeudaFragment(), "Nueva Deuda");
+        adapter.addFragment(new CobroFragment(), "Nuevo Cobro");
         viewPager.setAdapter(adapter);
     }
 
