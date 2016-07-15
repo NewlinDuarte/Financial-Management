@@ -105,7 +105,13 @@ public class Main2Activity extends AppCompatActivity
             fragmentTransaction.add(fragment, "eCuentas");
             fragmentTransaction.replace(R.id.main_view , fragment);
             fragmentTransaction.commit();
-        } else if (id == R.id.act_config) {
+        } else if (id == R.id.ver_efectivo) {
+            IngresoConsultaFragment fragment = new IngresoConsultaFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(fragment, "Consulta Ingresos");
+            fragmentTransaction.replace(R.id.main_view , fragment);
+            fragmentTransaction.commit();
+        }else if (id == R.id.act_config) {
             startActivity(new Intent(Main2Activity.this, PreferenciasActivity.class));
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

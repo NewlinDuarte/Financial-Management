@@ -77,6 +77,13 @@ public class SqliteController extends SQLiteOpenHelper {
         long item = cursor.getLong(cursor.getColumnIndexOrThrow("Total"));
         return item;
     }
+
+    public Cursor listarIngresos(){
+        SQLiteDatabase database = this.getReadableDatabase();
+        String query = "Select "+ DatabaseContract.IngresoEntry.COLUMN_NAME_INGRESO_ID +" '_id', "+DatabaseContract.IngresoEntry.COLUMN_NAME_CANTIDAD+", "+DatabaseContract.IngresoEntry.COLUMG_NAME_CUENTA_ID+" from " + DatabaseContract.IngresoEntry.TABLE_NAME;
+        Cursor c = database.rawQuery(query,null);
+        return c;
+    }
     // Metodos para tabla Egresos
 
     public void insertEgreso(float cantidad, int cuentaId) {
