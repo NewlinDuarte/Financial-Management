@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cendev.cenproyect.financialmanagement.SplashScreen"
+    tools:context="com.cendev.cenproyec.financialmanagement.SplashScreen"
     android:background="@color/colorPrimary"
     android:weightSum="1">
 
